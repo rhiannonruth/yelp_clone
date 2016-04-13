@@ -8,4 +8,11 @@ describe Restaurant, type: :model do
     expect(restaurant).to have(1).error_on(:name)
     expect(restaurant).not_to be_valid
   end
+
+  it 'is not valid if a restaurant with the same name exists' do
+    restaurant = Restaurant.create(name: "kfca")
+    restaurant2 = Restaurant.new(name: "kfca")
+    expect(restaurant2).to have(1).error_on(:name)
+    expect(restaurant2).not_to be_valid
+  end
 end
