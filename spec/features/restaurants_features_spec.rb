@@ -33,7 +33,7 @@ feature 'restaurants' do
     end
     context 'an invalid restaurant' do
       it 'does not let you submit a name that is too short' do
-        visit '/restauraunts'
+        visit '/restaurants'
         click_link 'Add a restaurant'
         fill_in 'Name', with: 'KF'
         click_button 'Create Restaurant'
