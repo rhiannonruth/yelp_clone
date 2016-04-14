@@ -60,4 +60,5 @@ group :test do
   gem 'shoulda'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
+  gem 'factory_girl_rails'
 end

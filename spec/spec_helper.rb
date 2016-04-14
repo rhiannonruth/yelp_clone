@@ -1,4 +1,5 @@
-puts 'spec helper'
+require 'factory_girl'
+require 'support/factory_girl'
 
 RSpec.configure do |config|
 

@@ -2,15 +2,16 @@ require 'rails_helper'
 
 feature 'restaurants' do
 
+  let(:user) { create(:user) }
+
   context 'user sign in required' do
 
     before do
       visit('/')
-      click_link('Sign up')
-      fill_in('Email', with: 'test@example.com')
-      fill_in('Password', with: 'testtest')
-      fill_in('Password confirmation', with: 'testtest')
-      click_button('Sign up')
+      click_link 'Sign in'
+      fill_in('Email', with: user.email)
+      fill_in('Password', with: user.password)
+      click_button 'Log in'
     end
 
     context 'restaurants have been added' do
@@ -38,9 +39,13 @@ feature 'restaurants' do
 
     context 'editing restaurants' do
 
-      before { Restaurant.create name: 'KFC' }
+      before do
+        restaurant = build(:restaurant)
+        restaurant.user = user
+        restaurant.save
+      end
 
-      scenario 'let a user edit a restaurant' do
+      scenario 'let a user edit a restaurant', js: false, focus: false do
         visit '/restaurants'
         click_link 'Edit KFC'
         fill_in 'Name', with: 'Kentucky Fried Chicken'
@@ -79,7 +84,7 @@ feature 'restaurants' do
   end
 
   context 'user sign in not required' do
-    
+
     context 'no restaurants have been added' do
       scenario 'should display a prompt to add a restaurant' do
         visit '/restaurants'

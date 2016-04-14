@@ -13,4 +13,9 @@ class User < ActiveRecord::Base
       user.password = Devise.friendly_token[0,20]
     end
   end
+
+  def creator_of?(restaurant)
+    restaurants.include? restaurant
+  end
+
 end
