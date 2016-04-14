@@ -30,7 +30,7 @@ class RestaurantsController < ApplicationController
   def edit
     @restaurant = Restaurant.find(params[:id])
     if !current_user.creator_of?(@restaurant)
-      flash[:alert] = 'Can not edit restaurant'
+      flash[:alert] = 'Cannot edit restaurant'
       redirect_to restaurants_path
     end
   end
@@ -43,8 +43,12 @@ class RestaurantsController < ApplicationController
 
   def destroy
     @restaurant = Restaurant.find(params[:id])
-    @restaurant.destroy
-    flash[:notice] = 'Restaurant deleted successfully'
+    if !current_user.creator_of?(@restaurant)
+      flash[:alert] = 'Cannot delete restaurant'
+    else
+      @restaurant.destroy
+      flash[:notice] = 'Restaurant deleted successfully'
+    end
     redirect_to restaurants_path
   end
 end
