@@ -10,4 +10,9 @@ FactoryGirl.define do
     description 'Kentucky Fried Chicken'
   end
 
+  factory :review do
+    thoughts 'I think very deeply'
+    rating 3
+  end
+
 end

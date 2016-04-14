@@ -1,6 +1,11 @@
+require 'coveralls'
+Coveralls.wear!('rails')
+
+
 require 'factory_girl'
 require 'support/factory_girl'
 
+puts "spec helper"
 RSpec.configure do |config|
 
   config.before(:suite) do

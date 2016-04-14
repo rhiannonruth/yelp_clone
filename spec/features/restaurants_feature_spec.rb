@@ -3,6 +3,8 @@ require 'rails_helper'
 feature 'restaurants' do
 
   let(:user) { create(:user) }
+  let(:restaurant) { build(:restaurant) }
+
 
   context 'user sign in required' do
 
@@ -37,37 +39,31 @@ feature 'restaurants' do
       end
     end
 
-    context 'editing restaurants' do
+    context 'editing and deleting restaurants' do
 
       before do
-        restaurant = build(:restaurant)
         restaurant.user = user
         restaurant.save
       end
 
-      scenario 'let a user edit a restaurant', js: false, focus: false do
-        visit '/restaurants'
-        click_link 'Edit KFC'
-        fill_in 'Name', with: 'Kentucky Fried Chicken'
-        click_button 'Update Restaurant'
-        expect(page).to have_content 'Kentucky Fried Chicken'
-        expect(current_path).to eq '/restaurants'
+      context 'editing restaurants' do
+        scenario 'let a user edit a restaurant', js: false, focus: false do
+          visit '/restaurants'
+          click_link 'Edit KFC'
+          fill_in 'Name', with: 'Kentucky Fried Chicken'
+          click_button 'Update Restaurant'
+          expect(page).to have_content 'Kentucky Fried Chicken'
+          expect(current_path).to eq '/restaurants'
+        end
       end
 
-    end
-
-    context 'deleting restaurants' do
-      let!(:kfc) {Restaurant.create name: 'KFC'}
-
-      before do
-        kfc.reviews.create(thoughts: "so so", rating: 3)
-      end
-
-      scenario 'removes a restaurant and associated reviews when a user clicks a delete link' do
-        visit '/restaurants'
-        click_link 'Delete KFC'
-        expect(page).not_to have_content 'KFC'
-        expect(page).to have_content 'Restaurant deleted successfully'
+      context 'deleting restaurants' do
+        scenario 'removes a restaurant when a user clicks a delete link' do
+          visit '/restaurants'
+          click_link "Delete #{restaurant.name}"
+          expect(page).not_to have_content restaurant.name
+          expect(page).to have_content 'Restaurant deleted successfully'
+        end
       end
     end
 
