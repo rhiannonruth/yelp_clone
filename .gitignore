@@ -14,3 +14,6 @@
 
 # Ignore credentials environment variable files
 /.env
+
+coverage/
+doc/
