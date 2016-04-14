@@ -1,21 +1,16 @@
 require 'rails_helper'
 
-feature "Setting limits on users" do
+feature "Setting limits on users", focus: true do
 
   let(:restaurant) { build(:restaurant) }
   let(:user1) { create(:user) }
   let(:user2) { create(:user) }
-  let(:review) { build(:review) }
 
 
 
   before do
     restaurant.user = user1
     restaurant.save
-    review.restaurant = restaurant
-    review.user = user1
-    review.save
-
     visit('/')
     click_link 'Sign in'
     fill_in('Email', with: user2.email)
@@ -35,15 +30,6 @@ feature "Setting limits on users" do
       click_link "Delete #{restaurant.name}"
       expect(page).to have_content restaurant.name
       expect(page).to have_content 'Cannot delete restaurant'
-  end
-
-
-  scenario 'User can only create one review per restaurant', js: false, focus: true do
-    # byebug
-    click_link "Review #{restaurant.name}"
-    expect(page).not_to have_button 'Leave Review'
-    expect(page).to have_content 'Cannot re-review restaurant'
-
   end
 
 end
