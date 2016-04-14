@@ -6,8 +6,13 @@ FactoryGirl.define do
   end
 
   factory :restaurant do
-    name 'KFC'
-    description 'Kentucky Fried Chicken'
+    name 'GBK'
+    description 'Gourmet Burger Kitchen'
+  end
+
+  factory :review do
+    thoughts 'I think very deeply'
+    rating 3
   end
 
 end
