@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
 
   def reviewer_of?(restaurant)
    reviewed_restaurants.include? restaurant
- end
+  end
+
+  def author_of?(review)
+   reviews.include? review
+  end
 
 end

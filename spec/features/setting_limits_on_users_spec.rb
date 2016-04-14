@@ -48,21 +48,18 @@ feature "Setting limits on users", focus: false do
       expect(page).not_to have_content restaurant.name
       expect(page).not_to have_content 'Cannot delete restaurant'
     end
-  end
 
-
-  scenario 'User can only create one review per restaurant', js: false, focus: false do
-    user_sign_in(user1)
-    click_link "Review #{restaurant.name}"
-    expect(page).not_to have_button 'Leave Review'
-    expect(page).to have_content 'Cannot re-review restaurant'
-  end
-
-  context 'User cannot bypass validation by creating review directly' do
-    scenario 'visiting new route' do
-      user_sign_in(user1)
-      visit "/restaurants/#{restaurant.id}/reviews/new"
+    scenario 'User can only create one review per restaurant', js: false, focus: false do
+      click_link "Review #{restaurant.name}"
+      expect(page).not_to have_button 'Leave Review'
       expect(page).to have_content 'Cannot re-review restaurant'
+    end
+
+    context 'User cannot bypass validation by creating review directly' do
+      scenario 'visiting new route' do
+        visit "/restaurants/#{restaurant.id}/reviews/new"
+        expect(page).to have_content 'Cannot re-review restaurant'
+      end
     end
   end
 

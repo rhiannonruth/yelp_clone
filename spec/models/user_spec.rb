@@ -18,9 +18,13 @@ describe User, type: :model do
   it '#creator_of?' do
     expect(user).to be_creator_of(restaurant)
   end
-  
+
   it '#reviewer_of?' do
     expect(user).to be_reviewer_of(restaurant)
+  end
+
+  it '#author_of?' do
+    expect(user).to be_author_of(review)
   end
 
 end
