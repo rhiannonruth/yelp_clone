@@ -6,6 +6,7 @@ feature 'reviewing' do
   let(:restaurant) { build(:restaurant) }
 
   before do
+    user_sign_in(user)
     link_restaurant_and_user(user, restaurant)
   end
 
