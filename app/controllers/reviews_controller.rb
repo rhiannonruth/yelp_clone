@@ -12,7 +12,11 @@ def new
 
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
-    @restaurant.reviews.create(review_params)
+    @review = Review.new(review_params)
+    @review.restaurant = @restaurant
+    @review.user = current_user
+    @review.save
+
     redirect_to restaurants_path
   end
 

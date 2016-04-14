@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Setting limits on users", focus: true do
+feature "Setting limits on users", focus: false do
 
   let(:restaurant) { build(:restaurant) }
   let(:user1) { create(:user) }
@@ -27,6 +27,10 @@ feature "Setting limits on users", focus: true do
       expect(page).to have_content restaurant.name
       expect(page).to have_content 'Cannot delete restaurant'
     end
+
+    scenario 'User can only delete reviews they have create' do
+
+    end
   end
 
   context 'User 1 signed in' do
@@ -52,6 +56,16 @@ feature "Setting limits on users", focus: true do
     click_link "Review #{restaurant.name}"
     expect(page).not_to have_button 'Leave Review'
     expect(page).to have_content 'Cannot re-review restaurant'
+  end
+
+  context 'User cannot bypass validation by creating review directly' do
+    scenario 'visiting new route' do
+      user_sign_in(user1)
+      visit "/restaurants/#{restaurant.id}/reviews/new"
+      expect(page).to have_content 'Cannot re-review restaurant'
+    end
+
+
   end
 
 end
