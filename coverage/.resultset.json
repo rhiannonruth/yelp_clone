@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/pete/Projects/yelp_clone/app/models/user.rb": [
+      "/Users/Rhiannon/Makers/Projects/yelp_clone/app/models/user.rb": [
         1,
         1,
         null,
@@ -23,25 +23,25 @@
         null,
         null,
         1,
-        2,
+        1,
         null,
         null,
         null,
         null
       ],
-      "/Users/pete/Projects/yelp_clone/app/helpers/application_helper.rb": [
+      "/Users/Rhiannon/Makers/Projects/yelp_clone/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/pete/Projects/yelp_clone/app/helpers/restaurants_helper.rb": [
+      "/Users/Rhiannon/Makers/Projects/yelp_clone/app/helpers/restaurants_helper.rb": [
         1,
         null
       ],
-      "/Users/pete/Projects/yelp_clone/app/helpers/reviews_helper.rb": [
+      "/Users/Rhiannon/Makers/Projects/yelp_clone/app/helpers/reviews_helper.rb": [
         1,
         null
       ],
-      "/Users/pete/Projects/yelp_clone/app/models/restaurant.rb": [
+      "/Users/Rhiannon/Makers/Projects/yelp_clone/app/models/restaurant.rb": [
         1,
         1,
         1,
@@ -50,7 +50,7 @@
         null,
         null
       ],
-      "/Users/pete/Projects/yelp_clone/app/models/review.rb": [
+      "/Users/Rhiannon/Makers/Projects/yelp_clone/app/models/review.rb": [
         1,
         null,
         1,
@@ -58,13 +58,13 @@
         1,
         null
       ],
-      "/Users/pete/Projects/yelp_clone/app/controllers/restaurants_controller.rb": [
+      "/Users/Rhiannon/Makers/Projects/yelp_clone/app/controllers/restaurants_controller.rb": [
         1,
         null,
         1,
         null,
         1,
-        42,
+        43,
         null,
         null,
         1,
@@ -114,14 +114,14 @@
         null,
         null
       ],
-      "/Users/pete/Projects/yelp_clone/app/controllers/application_controller.rb": [
+      "/Users/Rhiannon/Makers/Projects/yelp_clone/app/controllers/application_controller.rb": [
         1,
         null,
         null,
         1,
         null
       ],
-      "/Users/pete/Projects/yelp_clone/app/controllers/users/omniauth_callbacks_controller.rb": [
+      "/Users/Rhiannon/Makers/Projects/yelp_clone/app/controllers/users/omniauth_callbacks_controller.rb": [
         1,
         1,
         null,
@@ -141,31 +141,31 @@
         null,
         null
       ],
-      "/Users/pete/Projects/yelp_clone/app/controllers/reviews_controller.rb": [
-        1,
-        null,
-        1,
-        2,
-        2,
-        0,
-        0,
-        null,
-        1,
-        null,
-        null,
-        null,
-        1,
+      "/Users/Rhiannon/Makers/Projects/yelp_clone/app/controllers/reviews_controller.rb": [
         0,
         0,
         0,
-        null,
-        null,
-        1,
         0,
-        null,
-        null
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
       ]
     },
-    "timestamp": 1460636771
+    "timestamp": 1460640391
   }
 }

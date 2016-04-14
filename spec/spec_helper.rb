@@ -4,9 +4,14 @@ Coveralls.wear!('rails')
 
 require 'factory_girl'
 require 'support/factory_girl'
+require 'helpers/user_helper'
+require 'helpers/review_helper'
 
 puts "spec helper"
 RSpec.configure do |config|
+
+  config.include UserHelpers
+  config.include ReviewHelpers
 
   config.before(:suite) do
      DatabaseCleaner.clean_with(:truncation)

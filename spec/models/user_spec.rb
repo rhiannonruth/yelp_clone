@@ -6,18 +6,13 @@ describe User, type: :model do
   let(:restaurant) { build(:restaurant) }
   let(:review) { build(:review) }
 
-
   it { is_expected.to have_many(:reviewed_restaurants)}
   it { is_expected.to have_many(:restaurants)}
   it { is_expected.to have_many(:reviews)}
 
-
   before do
-    restaurant.user = user
-    restaurant.save
-    review.restaurant = restaurant
-    review.user = user
-    review.save
+    link_restaurant_and_user(user, restaurant)
+    link_review_with_restaurant_and_user(review, restaurant, user)
   end
 
   it '#creator_of?' do
