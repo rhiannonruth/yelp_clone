@@ -11,12 +11,8 @@ def new
  end
 
   def create
-    @restaurant = Restaurant.find(params[:restaurant_id])
-    @review = Review.new(review_params)
-    @review.restaurant = @restaurant
-    @review.user = current_user
-    @review.save
-
+    restaurant = Restaurant.find(params[:restaurant_id])
+    restaurant.build_review(review_params, current_user)
     redirect_to restaurants_path
   end
 

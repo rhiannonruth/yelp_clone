@@ -7,7 +7,6 @@ describe Review, type: :model do
   subject(:review) { build(:review) }
   let(:review2)  { build(:review) }
 
-
   it { is_expected.to belong_to :restaurant }
   it { is_expected.to belong_to :user }
 
@@ -21,4 +20,5 @@ describe Review, type: :model do
     link_review_with_restaurant_and_user(review2, restaurant, user)
     expect(review2).to have(1).error_on(:user)
   end
+
 end

@@ -64,8 +64,6 @@ feature "Setting limits on users", focus: false do
       visit "/restaurants/#{restaurant.id}/reviews/new"
       expect(page).to have_content 'Cannot re-review restaurant'
     end
-
-
   end
 
 end
