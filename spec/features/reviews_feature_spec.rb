@@ -9,7 +9,7 @@ feature 'reviewing' do
     link_restaurant_and_user(user, restaurant)
   end
 
-  xscenario 'allows users to leave a review using a form' do
+  scenario 'allows users to leave a review using a form' do
     visit '/restaurants'
     click_link "Review #{restaurant.name}"
     fill_in "Thoughts", with: "so so"
