@@ -77,5 +77,15 @@ feature 'restaurants' do
       expect(page).to have_content 'KFC'
       expect(current_path).to eq '/restaurants'
     end
+    scenario 'can create restaurant with image', focus: true do
+      visit '/restaurants'
+      click_link 'Add a restaurant'
+      fill_in 'Name', with: 'KFC'
+      attach_file 'restaurant[image]', Rails.root + 'spec/images/photo.png'
+      click_button 'Create Restaurant'
+      expect(page).to have_content 'KFC'
+      expect(page).to have_xpath("//img[contains(@src,'photo.png')]")
+      expect(current_path).to eq '/restaurants'
+    end
   end
 end
